@@ -19,7 +19,7 @@ class StudentViewModel(private val repository: StudentRepository):ViewModel() {
         }
     }
 
-    private fun loadStudents() {
+    fun loadStudents() {
         repository.getStudents { _students.value = it }
     }
 
