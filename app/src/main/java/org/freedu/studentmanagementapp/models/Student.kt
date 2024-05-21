@@ -1,5 +1,8 @@
 package org.freedu.studentmanagementapp.models
 
+import android.os.Parcelable
+import java.io.Serializable
+
 data class Student(
     val profileImage:String ="",
     val fullName:String ="",
@@ -8,4 +11,4 @@ data class Student(
     val address:String = "",
     val email:String = "",
     val phone:String = ""
-)
+):Serializable

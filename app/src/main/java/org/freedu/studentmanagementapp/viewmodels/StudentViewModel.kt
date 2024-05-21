@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import org.freedu.studentmanagementapp.models.Student
 import org.freedu.studentmanagementapp.repositories.StudentRepository
 
-class StudentViewModel(private val repository: StudentRepository):ViewModel() {
+class StudentViewModel:ViewModel() {
+    private val repository: StudentRepository = StudentRepository()
     private val _students = MutableLiveData<List<Student>>()
+
     val students:LiveData<List<Student>> get() = _students
 
     fun addStudent(student: Student, imageUri:Uri){

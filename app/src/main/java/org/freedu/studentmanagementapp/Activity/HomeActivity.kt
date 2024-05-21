@@ -46,7 +46,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun editStudent(student: Student) {
-        startActivity(Intent(this, AddUpdateActivity::class.java))
+        val intent = Intent(this, AddUpdateActivity::class.java)
+        intent.putExtra("student", student)
+        startActivity(intent)
     }
 
     private fun deleteStudent(s: String) {
