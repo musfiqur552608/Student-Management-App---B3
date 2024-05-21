@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "477900562190",
+    "project_id": "student-management-app-d8733",
+    "storage_bucket": "student-management-app-d8733.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477900562190:android:9f90faaed7b706aeb2015f",
+        "android_client_info": {
+          "package_name": "org.freedu.studentmanagementapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlDfXZtevgZkZVSiMJ7nbsy33HxMNoRGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
