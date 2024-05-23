@@ -24,6 +24,7 @@ class StudentAdaptar(
         return students.size
     }
 
+
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         val student = students[position]
         Glide.with(holder.itemView.context).load(student.profileImage).into(holder.binding.profileImage)

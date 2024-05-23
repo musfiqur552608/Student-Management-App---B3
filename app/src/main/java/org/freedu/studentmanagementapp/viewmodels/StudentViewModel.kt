@@ -8,35 +8,40 @@ import org.freedu.studentmanagementapp.models.Student
 import org.freedu.studentmanagementapp.repositories.StudentRepository
 
 class StudentViewModel:ViewModel() {
-    private val repository: StudentRepository = StudentRepository()
+    private val repository = StudentRepository()
+
     private val _students = MutableLiveData<List<Student>>()
-
-    val students:LiveData<List<Student>> get() = _students
-
-    fun addStudent(student: Student, imageUri:Uri){
-        repository.addStudent(student, imageUri){
-            if(it){
-                loadStudents()
-            }
-        }
-    }
+    val students: LiveData<List<Student>> get() = _students
 
     fun loadStudents() {
-        repository.getStudents { _students.value = it }
+        repository.getStudents { students ->
+            _students.value = students
+        }
     }
 
-    fun updateStudent(student: Student){
-        repository.updateStudent(student){
-            if(it){
+    fun deleteStudent(studentId: String) {
+        repository.deleteStudent(studentId) { success ->
+            if (success) {
                 loadStudents()
             }
         }
     }
-    fun deleteStudent(studentId:String){
-        repository.deleteStudent(studentId){
-            if(it){
+
+    fun addStudent(student: Student, onComplete: (Boolean) -> Unit) {
+        repository.addStudent(student) { success ->
+            if (success) {
                 loadStudents()
             }
+            onComplete(success)
+        }
+    }
+
+    fun updateStudent(student: Student, onComplete: (Boolean) -> Unit) {
+        repository.updateStudent(student) { success ->
+            if (success) {
+                loadStudents()
+            }
+            onComplete(success)
         }
     }
 }

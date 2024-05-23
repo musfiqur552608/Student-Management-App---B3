@@ -1,14 +1,15 @@
 package org.freedu.studentmanagementapp.models
 
 import android.os.Parcelable
-import java.io.Serializable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Student(
-    val profileImage:String ="",
-    val fullName:String ="",
-    val studentId:String = "",
-    val subject:String = "",
-    val address:String = "",
-    val email:String = "",
-    val phone:String = ""
-):Serializable
+    val profileImage: String? ="",
+    var fullName:String ="",
+    var studentId:String = "",
+    var subject:String = "",
+    var address:String = "",
+    var email:String = "",
+    var phone:String = ""
+):Parcelable

@@ -33,10 +33,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.students.observe(this,{
+        viewModel.students.observe(this) {
             studentAdaptar = StudentAdaptar(it, this::editStudent, this::deleteStudent)
             binding.studentRv.adapter = studentAdaptar
-        })
+            studentAdaptar.notifyDataSetChanged()
+        }
     }
 
     private fun setupRecyclerView() {
